@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaibhav Seth's Portfolio</title>
+    <link rel="stylesheet" href="CSS/style0.css">
+    <script src="script/script0.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="typing" id="text"></div>
+    </div>
+    <script>
+        const text = "This is Vaibhav Seth's Portfolio";
+        let i = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            let speed = 100;
+            
+            if (!isDeleting) {
+                document.getElementById("text").innerHTML = text.substring(0, i);
+                i++;
+                if (i > text.length) {
+                    isDeleting = true;
+                    speed = 1000;
+                }
+            } else {
+                document.getElementById("text").innerHTML = text.substring(0, i);
+                i--;
+                if (i < 0) {
+                    isDeleting = false;
+                }
+            }
+            setTimeout(typeWriter, speed);
+        }
+
+        typeWriter();
+    </script>
+</body>
+</html>
